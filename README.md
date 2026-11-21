@@ -31,3 +31,7 @@ Otevřete http://localhost:3000. Bez nastavení Supabase se zobrazí Skatepark L
 Projekty jsou soukromé pro účet, který je vytvořil. Eviduje se číslo, účel a částka dokladu, rozdělení mezi zdroje, rozpočtová položka a datum úhrady. Rozpočtová položka je zatím text u každé přidělené částky. Částky se ukládají jako celé haléře. Databáze hlídá shodu součtu s dokladem a zůstatek jednotlivých zdrojů.
 
 Sdílení projektů s týmem, souborové přílohy, limity rozpočtových položek a formuláře konkrétních poskytovatelů patří do dalších verzí.
+
+## Instalace na iPhone a iPad
+
+Otevřete nasazenou aplikaci přes HTTPS v Safari. V nabídce **Sdílet** zvolte **Přidat na plochu**, zapněte **Otevřít jako webovou aplikaci**, pokud je tato volba v nabídce, a klepněte na **Přidat**. Dotačník se pak spustí z vlastní ikony. Evidování a prohlížení dat vyžaduje připojení k internetu.

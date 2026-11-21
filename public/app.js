@@ -1,3 +1,6 @@
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').catch(error => console.warn('Offline stránka není dostupná.', error));
+}
 const view = document.querySelector('#view');
 const notice = document.querySelector('#notice');
 const config = await fetch('/config').then(response => response.json()).catch(() => null);

@@ -42,3 +42,10 @@ td.money { white-space: nowrap; }
 #notice.error { background: #fbe8e6; color: #842b22; }
 [hidden] { display: none !important; }
 @media (max-width: 640px) { .allocation { grid-template-columns: 1fr 1fr; } main { padding-top: 1rem; } }
+
+header { padding-top: env(safe-area-inset-top); }
+body {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+}

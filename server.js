@@ -10,7 +10,13 @@ if (Boolean(url) !== Boolean(key) || (process.env.RENDER === 'true' && !url)) {
 const assets = {
   '/': ['index.html', 'text/html'],
   '/app.js': ['app.js', 'text/javascript'],
-  '/style.css': ['style.css', 'text/css']
+  '/style.css': ['style.css', 'text/css'],
+  '/manifest.webmanifest': ['manifest.webmanifest', 'application/manifest+json'],
+  '/sw.js': ['sw.js', 'text/javascript'],
+  '/offline.html': ['offline.html', 'text/html'],
+  '/icons/icon-180.png': ['icons/icon-180.png', 'image/png'],
+  '/icons/icon-192.png': ['icons/icon-192.png', 'image/png'],
+  '/icons/icon-512.png': ['icons/icon-512.png', 'image/png']
 };
 
 createServer(async (req, res) => {
@@ -26,7 +32,9 @@ createServer(async (req, res) => {
   if (!asset) return res.writeHead(404).end();
   try {
     const content = await readFile(new URL('public/' + asset[0], import.meta.url));
-    res.writeHead(200, {'Content-Type': asset[1] + '; charset=utf-8'}).end(content);
+    if (req.url === '/sw.js') res.setHeader('Cache-Control', 'no-cache');
+    const mime = asset[1].startsWith('image/') ? asset[1] : asset[1] + '; charset=utf-8';
+    res.writeHead(200, {'Content-Type': mime}).end(content);
   } catch {
     res.writeHead(500).end();
   }
